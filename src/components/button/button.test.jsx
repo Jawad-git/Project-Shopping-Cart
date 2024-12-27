@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Button from "./Button"; // Adjust the import based on your folder structure
+import Button from "./button"; // Adjust the import based on your folder structure
 import "@testing-library/jest-dom"; // For the 'toBeInTheDocument' matcher
 import userEvent from "@testing-library/user-event";
 

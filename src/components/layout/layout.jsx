@@ -1,14 +1,17 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../navbar/navbar";
 import Footer from "../footer/footer";
+import style from "./layout.module.css";
 
 const Layout = () => {
   return (
-    <div className="">
+    <>
       <NavBar />
-      <Outlet /> {/* Renders the matched route content here */}
-      <Footer />
-    </div>
+      <div className={style.content}>
+        <Outlet /> {/* Renders the matched route content here */}
+        <Footer />
+      </div>
+    </>
   );
 };
 

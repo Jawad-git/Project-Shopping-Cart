@@ -3,12 +3,13 @@ import StorePage from "../pages/storepage/storePage";
 import ErrorElement from "../pages/errorElement/errorElement";
 import AboutPage from "../pages/aboutPage/aboutpage";
 import App from "../App";
+import Layout from "../components/layout/layout";
 //import Layout from "../components/layout/layout";
 
 const routes = [
   {
     path: "/",
-    element: <App />,
+    element: <Layout />,
     errorElement: <ErrorElement />,
     children: [
       {
