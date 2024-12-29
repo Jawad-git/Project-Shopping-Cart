@@ -65,3 +65,7 @@ li {
 .active:hover {
   color: darkgoldenrod;
 }
+
+.webName {
+  font-size: 1.75rem;
+}

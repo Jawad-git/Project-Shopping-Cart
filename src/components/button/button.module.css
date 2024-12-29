@@ -1,0 +1,22 @@
+button {
+  border-radius: 8px;
+  border: 1px solid silver;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.6s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.visitStore:hover {
+  border: 2px solid gold;
+}
+
+.visitStore:active {
+  border: 2px solid darkgoldenrod;
+}
