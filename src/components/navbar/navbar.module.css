@@ -27,6 +27,9 @@ li {
   color: rgba(255, 255, 255, 0.87);
 }
 
+.links {
+  padding-right: 7rem;
+}
 .link:hover {
   color: gold;
 }
@@ -68,4 +71,5 @@ li {
 
 .webName {
   font-size: 1.75rem;
+  cursor: default;
 }

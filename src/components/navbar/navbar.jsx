@@ -26,7 +26,7 @@ const NavBar = ({ onLinkClick }) => {
           </Link>
           <div className={styles.webName}>The Odin Store</div>
         </div>
-        <ul className="links">
+        <ul className={styles.links}>
           <li>
             <Link
               to="/"

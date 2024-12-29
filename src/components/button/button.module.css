@@ -6,7 +6,8 @@ button {
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
-  transition: border-color 0.25s, transform 0.6s;
+  transition: border-color 0.25s, transform 0.6s, box-shadow 0.3s;
+  margin-top: 1rem;
 }
 
 button:hover {
@@ -14,9 +15,11 @@ button:hover {
 }
 
 .visitStore:hover {
-  border: 2px solid gold;
+  border: 1px solid gold;
+  box-shadow: 0 0 0 1px gold; /* Create a simulated border */
 }
 
 .visitStore:active {
   border: 2px solid darkgoldenrod;
+  box-shadow: 0 0 0 1px goldenrod; /* Create a simulated border */
 }

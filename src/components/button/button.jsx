@@ -8,14 +8,16 @@ const Button = ({
   buttonType,
   classNameProp,
 }) => {
-  const buttonClass = styles[buttonType] || ""; // Default to empty string if type doesn't exist
-  const stylesButton = styles[styles.button] || ""; // Default to empty string if type doesn't exist
+  // check if the classes sent as props exist in the CSS module
+  const buttonTypeClass = styles[buttonType] || ""; // such as assertive / dismissive / confirm etc..
+  const buttonClass = styles[styles.button] || ""; // Default to empty string if type doesn't exist
+  const classProp = styles[classNameProp] || "";
 
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${stylesButton} ${buttonClass} ${styles[classNameProp]}`}
+      className={`${buttonClass} ${buttonTypeClass} ${classProp}`}
     >
       {text}
     </button>
