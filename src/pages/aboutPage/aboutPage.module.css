@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("./Norsebold.otf") format("opentype"),
+    url("./Norse.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.introduction > * {
+  color: black;
+  font-family: "MyFont", sans-serif;
+  padding-left: 1.2rem;
+  color: rgb(219, 160, 11);
+}
+
+.introduction > p {
+  font-size: 1.5rem;
+}
+
+.h1 {
+  text-align: start;
+  margin: 1rem 0rem;
+}
+
+.p {
+  max-width: 85rem;
+}
+
+.h2 {
+  font-size: 2.5rem;
+}
+
+.ul {
+  align-self: flex-start;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.li {
+  align-self: flex-start;
+}
