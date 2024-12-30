@@ -9,3 +9,4 @@ Currently, two official plugins are available:
 
 Profile picture logo by Freepik.com - edited.
 social media logos by pngwing.com
+https://icon-library.com/icon/messaging-app-icon-23.html.html>Messaging App Icon # 352337 - messaging icon
