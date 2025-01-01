@@ -4,10 +4,12 @@ import NavBar from "../navbar/navbar";
 import Footer from "../footer/footer";
 import CustSupport from "../custSupport/custSupport";
 import styles from "./layout.module.css";
+import useFetchProducts from "./fetchFile";
 
 const Layout = () => {
   const [background, setBackground] = useState("Home");
   const [addedToCart, setAddedToCart] = useState(new Map());
+  const [products, error, loading] = useFetchProducts();
   const addToCart = (id, count) => {
     setAddedToCart((prevMap) => {
       const newMap = new Map(prevMap); // Create a new Map to ensure immutability
@@ -29,7 +31,13 @@ const Layout = () => {
     >
       <NavBar onLinkClick={setBackgroundWrapper} />
       <div className={styles.content}>
-        <Outlet cartItems={addedToCart} addToCart={addToCart} />
+        <Outlet
+          cartItems={addedToCart}
+          addToCart={addToCart}
+          products={products}
+          error={error}
+          loading={loading}
+        />
         {/* Renders the matched route content here */}
         <Footer />
         <CustSupport />
