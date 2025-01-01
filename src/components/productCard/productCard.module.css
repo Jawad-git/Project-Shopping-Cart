@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(48, 94, 20, 0.5);
+}
+
+img {
+  height: 10rem;
+  object-fit: cover;
+}
+
+.h2 {
+  font-size: 1.2rem;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputSection {
+  display: flex;
+}
