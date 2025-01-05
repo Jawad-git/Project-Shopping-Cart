@@ -15,7 +15,7 @@ const Layout = () => {
   const addToCart = (id, count) => {
     setCartItems((prevMap) => {
       const newMap = new Map(prevMap); // Create a new Map to ensure immutability
-      newMap.set(id, (newMap.get(id) || 0) + count); // Update the count for the given id
+      newMap.set(id, (newMap.get(id) || 0) + Number(count)); // Update the count for the given id
       return newMap;
     });
   };
@@ -40,7 +40,11 @@ const Layout = () => {
   return (
     <div
       className={styles.layout}
-      style={{ backgroundImage: `url(./${background}.jpg)` }}
+      style={
+        background !== "Store"
+          ? { backgroundImage: `url(./${background}.jpg)` }
+          : { backgroundColor: "rgb(66, 66, 85)" }
+      }
     >
       <NavBar
         onLinkClick={setBackgroundWrapper}

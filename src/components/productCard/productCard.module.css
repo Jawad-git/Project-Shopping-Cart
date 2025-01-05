@@ -1,16 +1,43 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: rgba(48, 94, 20, 0.5);
+  background-color: rgb(165, 170, 196);
+  border-radius: 3%;
+  padding-bottom: 0.5rem;
+  height: 500px;
+}
+
+.card * {
+  color: black;
 }
 
 img {
-  height: 10rem;
+  height: 12rem;
   object-fit: cover;
+  border-radius: 3%;
+}
+
+.cardContent {
+  padding: 0.5rem;
+}
+
+.p {
+  max-height: 5rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background-color: rgba(55, 55, 55, 0.5);
+  padding: 0.5rem;
+  padding-top: 0.2rem;
 }
 
 .h2 {
   font-size: 1.2rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  height: 3.6rem;
+  overflow: auto;
+  scroll-behavior: smooth;
 }
 
 .flexColumn {
@@ -19,5 +46,23 @@ img {
 }
 
 .inputSection {
+  width: 100%;
   display: flex;
+  height: 2rem;
+  gap: 1rem;
+  margin: 0.6rem 0;
+  justify-content: center;
+}
+.countInput {
+  flex: 0.5 1 auto;
+  width: 40px;
+  padding-left: 0.3rem;
+  color: aliceblue;
+}
+
+.label {
+  flex: 1 1 auto; /* Take up remaining space */
+  width: 70px;
+  padding-right: 0.5rem; /* Optional spacing */
+  align-self: center;
 }

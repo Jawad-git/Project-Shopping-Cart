@@ -13,6 +13,7 @@ const useFetchProducts = () => {
         description:
           "Kratos's Frost-Enchanted Axe - symbolizes strength, vengeance, and balance, capable of being thrown and recalled with divine precision.",
         category: "Featured - Weapons",
+        price: "10000",
       },
       {
         id: uuidv4(),
@@ -20,6 +21,7 @@ const useFetchProducts = () => {
         description:
           "Thor's legendary hammer, representing protection and might, capable of summoning lightning and returning to its wielder.",
         category: "Featured - Weapons",
+        price: "9000",
       },
       {
         id: uuidv4(),
@@ -27,6 +29,7 @@ const useFetchProducts = () => {
         description:
           "The spear of Odin, crafted by dwarves, never misses its mark and symbolizes authority and divine power.",
         category: "Featured - Weapons",
+        price: "3000",
       },
       {
         id: uuidv4(),
@@ -34,6 +37,7 @@ const useFetchProducts = () => {
         description:
           "A deadly blade that always strikes true but brings misfortune to its bearer, representing both power and tragedy.",
         category: "Featured - Weapons",
+        price: "2500",
       },
       {
         id: uuidv4(),
@@ -41,6 +45,7 @@ const useFetchProducts = () => {
         description:
           "Sigurd's sword, used to slay the dragon Fafnir, symbolizing courage, heroism, and triumph over evil.",
         category: "Featured - Weapons",
+        price: "2000",
       },
       {
         id: uuidv4(),
@@ -48,6 +53,7 @@ const useFetchProducts = () => {
         description:
           "The horn of Heimdall, used to announce the beginning of Ragnarök, symbolizing vigilance and divine alertness.",
         category: "Featured - Artifacts",
+        price: "1300",
       },
       {
         id: uuidv4(),
@@ -55,6 +61,7 @@ const useFetchProducts = () => {
         description:
           "A dazzling necklace symbolizing love, desire, and fertility, worn by the goddess Freyja.",
         category: "Featured - Artifacts",
+        price: "1000",
       },
     ];
 
@@ -78,16 +85,14 @@ const useFetchProducts = () => {
         throw new Error(`GIPHY Server Error fetching image of ${object.title}`);
       }
       const data = await response.json();
-      object.src =
+      object.image =
         data.data.length > 0 ? data.data[0].images.original.url : "default.jpg";
     };
 
     const fetchAllProducts = async () => {
       try {
-        const [
-          /*, ',' was for the first destructured fetch function, but im rate limited so will comment for now"*/ fakeProducts,
-        ] = await Promise.all([
-          //await Promise.all(featuredData.map(fetchProductImage)),
+        const [, fakeProducts] = await Promise.all([
+          await Promise.all(featuredData.map(fetchProductImage)),
           fetchfakeProducts(),
         ]);
         console.log(fakeProducts);

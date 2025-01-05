@@ -22,30 +22,43 @@ const ProductCard = ({ id, description, addToCart, image, title, price }) => {
   return (
     <div className={styles.card}>
       <img src={image} className={styles.img}></img>
-      <h2 className={styles.h2}>{title}</h2>
-      <p className={styles.p}>{description}</p>
-      <div className={styles.flexColumn}>
-        <Button text="Add 1 to Cart" onClick={() => addToCart(id, 1)} />
-        <h3>{price}</h3>
-      </div>
-      <div className={styles.inputSection}>
-        <label htmlFor="count">Add to cart</label>
-        <input
-          id="count"
-          type="number"
-          value={count}
-          onChange={(e) => e.target.value}
-          className={styles.countInput}
-        />
-        <Button text="Confirm" onClick={onAddButtonClick} />
+      <div className={styles.cardContent}>
+        <h2 className={styles.h2}>{title}</h2>
+        <p className={styles.p}>{description}</p>
+        <div className={styles.flexColumn}>
+          <Button text="Add 1 to Cart" onClick={() => addToCart(id, 1)} />
+        </div>
+        <div className={styles.inputSection}>
+          <label htmlFor="count" className={styles.label}>
+            Add to cart
+          </label>
+          <input
+            id="count"
+            type="number"
+            value={count}
+            onChange={(e) => setCount(e.target.value)}
+            className={styles.countInput}
+          />
+          <Button
+            text="Confirm"
+            onClick={onAddButtonClick}
+            classNameProp="confirmButton"
+            className={styles.confButton}
+          />
+        </div>
+        <h3>${price}</h3>
       </div>
     </div>
   );
 };
 
-ProductCard.proptTypes = {
+ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   addToCart: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  image: PropTypes.string,
+  description: PropTypes.string.isRequired,
 };
 
 export default ProductCard;
