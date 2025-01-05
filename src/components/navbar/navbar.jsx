@@ -1,11 +1,8 @@
 import styles from "./navbar.module.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const NavBar = ({ onLinkClick }) => {
-  const [activeLink, setActiveLink] = useState("Home");
-
+const NavBar = ({ onLinkClick, activeLink, setActiveLink }) => {
   const linkClick = (link) => {
     setActiveLink(link);
   };
@@ -77,5 +74,7 @@ const NavBar = ({ onLinkClick }) => {
 
 NavBar.propTypes = {
   onLinkClick: PropTypes.func.isRequired,
+  activeLink: PropTypes.string.isRequired,
+  setActiveLink: PropTypes.func.isRequired,
 };
 export default NavBar;

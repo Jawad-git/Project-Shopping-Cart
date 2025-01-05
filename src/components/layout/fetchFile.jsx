@@ -84,20 +84,23 @@ const useFetchProducts = () => {
 
     const fetchAllProducts = async () => {
       try {
-        const [, fakeProducts] = await Promise.all([
-          Promise.all(featuredData.map(fetchProductImage)),
+        const [
+          /*, ',' was for the first destructured fetch function, but im rate limited so will comment for now"*/ fakeProducts,
+        ] = await Promise.all([
+          //await Promise.all(featuredData.map(fetchProductImage)),
           fetchfakeProducts(),
         ]);
+        console.log(fakeProducts);
         setProducts({ featured: featuredData, fake: fakeProducts });
       } catch (err) {
-        setError((prevError) => [...prevError, err.message]);
+        setError((prevError) => [...prevError, `${err.message} ${err.stack}`]);
       } finally {
         setLoading(false);
       }
     };
     fetchAllProducts();
   }, []);
-  return { products, error, loading };
+  return [products, error, loading];
 };
 // fetch fake products from a fakestore api
 
