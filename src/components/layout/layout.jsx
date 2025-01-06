@@ -1,5 +1,7 @@
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import NavBar from "../navbar/navbar";
 import Footer from "../footer/footer";
 import CustSupport from "../custSupport/custSupport";
@@ -11,6 +13,21 @@ const Layout = () => {
   const [cartItems, setCartItems] = useState(new Map());
   const [products, error, loading] = useFetchProducts();
   const [activeLink, setActiveLink] = useState("Home");
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname; // Get the current path
+    if (path === "/store") {
+      setBackground("Store");
+      setActiveLink("Store");
+    } else if (path === "/about") {
+      setBackground("About");
+      setActiveLink("About");
+    } else {
+      setBackground("Home");
+      setActiveLink("Home");
+    }
+  }, [location]);
 
   const addToCart = (id, count) => {
     setCartItems((prevMap) => {

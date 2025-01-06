@@ -7,6 +7,7 @@ const Button = ({
   onClick,
   buttonType,
   classNameProp,
+  disabled,
 }) => {
   // check if the classes sent as props exist in the CSS module
   const buttonTypeClass = styles[buttonType] || ""; // such as assertive / dismissive / confirm etc..
@@ -18,6 +19,7 @@ const Button = ({
       type={type}
       onClick={onClick}
       className={`${buttonClass} ${buttonTypeClass} ${classProp}`}
+      disabled={disabled}
     >
       {text}
     </button>
@@ -30,6 +32,7 @@ Button.propTypes = {
   classNameProp: PropTypes.string,
   buttonType: PropTypes.string,
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -38,6 +41,7 @@ Button.defaultProps = {
   classNameProp: "", // Default empty className
   buttonType: "default",
   onClick: () => {}, // Default empty function
+  disabled: false,
 };
 
 export default Button;

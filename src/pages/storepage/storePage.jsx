@@ -2,13 +2,29 @@ import PropTypes from "prop-types";
 import ProductCard from "../../components/productCard/productCard";
 import { useOutletContext } from "react-router-dom";
 import styles from "./storePage.module.css";
-import Button from "../../components/button/button";
+import Cart from "../../components/cart/cart";
 
 const StorePage = () => {
   const { cartItems, addToCart, removeFromCart, products, error, loading } =
     useOutletContext();
 
+  {
+    /* basically, the cart items is a map, product id -> count of that id purchased
+      and products is the object with fake and featured objects pointing to the respective
+      array of products. get the id from the map, and then compare it against the id of the 
+      product in products.fake or products,featured. then we can have both the price of the 
+      product and the count the user has added to their cart.
+    */
+  }
+
+  {
+    /*while the program is fetching data, display a loading message */
+  }
   if (loading) return <p>Loading...</p>;
+  {
+    /*if there are errors, display them instead of the products */
+  }
+
   if (error.length > 0)
     return (
       <ul>
@@ -23,9 +39,11 @@ const StorePage = () => {
       <div className={styles.itemSection}>
         <h1 className={styles.h1}>Standard Products</h1>
 
+        {/* if the fake products are empty, display a message  */}
         {products.fake && products.fake.length == 0 && (
           <div>there are 0 fake products</div>
         )}
+        {/* if there are no fake products at all, print it out */}
         {!products.fake && <div>there are no fake products</div>}
 
         <div className={styles.products}>
@@ -62,49 +80,11 @@ const StorePage = () => {
             ))}
         </div>
       </div>
-      <div className={styles.cart}>
-        <div className={styles.cartDetails}>
-          <h2 className={styles.h2}>Your Cart:</h2>
-          <div className={styles.addedItems}>
-            {[...cartItems].map(([key, value]) => {
-              const product =
-                products.fake.find((x) => x.id === key) ||
-                products.featured.find((x) => x.id === key);
-              return (
-                <div className={styles.cartItem} key={product.id}>
-                  <h4>{`${value} ${product.title}, price: $${product.price} `}</h4>
-                  <Button
-                    text="remove one"
-                    onClick={() => removeFromCart(key, 1)}
-                    classNameProp="removeButton"
-                  />
-                  <Button
-                    text="remove all"
-                    onClick={() => removeFromCart(key, value)}
-                    classNameProp="removeButton"
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        <div className={styles.checkoutDetails}>
-          <div className={styles.totalPrice}>
-            Total price: $
-            {[...cartItems].reduce((total, [key, value]) => {
-              const product =
-                products.fake.find((x) => x.id === key) ||
-                products.featured.find((x) => x.id === key);
-
-              if (product) {
-                total += product.price * value;
-              }
-              return total;
-            }, 0)}
-          </div>
-          <Button text="Check out" />
-        </div>
-      </div>
+      <Cart
+        cartItems={cartItems}
+        products={products}
+        removeFromCart={removeFromCart}
+      />
     </div>
   );
 };
